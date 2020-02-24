@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var is_number_1 = require("./assert/is-number");
+exports.isNumber = is_number_1.isNumber;
+var number_1 = require("./random/number");
+exports.randomNumber = number_1.randomNumber;
+var string_1 = require("./random/string");
+exports.randomString = string_1.randomString;
+var mock_1 = require("./utils/mock");
+exports.getMock = mock_1.getMock;

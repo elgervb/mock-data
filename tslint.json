@@ -1,16 +1,37 @@
 {
-    "defaultSeverity": "error",
-    "extends": [
-        "tslint:all"
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:all"
+  ],
+  "jsRules": {},
+  "rules": {
+    "file-name-casing": [
+      true,
+      "kebab-case"
     ],
-    "jsRules": {},
-    "rules": {
-      "file-name-casing": [true, "kebab-case"],
-      "increment-decrement": false,
-      "newline-per-chained-call": false,
-      "only-arrow-functions": false,
-      "quotemark": false,
-      "typedef": [true, "call-signature", "parameter","property-declaration","member-variable-declaration","object-destructuring","array-destructuring"]
-    },
-    "rulesDirectory": []
+    "increment-decrement": false,
+    "newline-per-chained-call": false,
+    "no-magic-numbers": [
+      true,
+      0,
+      1,
+      2,
+      -1,
+      -2,
+      10,
+      16
+    ],
+    "only-arrow-functions": false,
+    "quotemark": false,
+    "typedef": [
+      true,
+      "call-signature",
+      "parameter",
+      "property-declaration",
+      "member-variable-declaration",
+      "object-destructuring",
+      "array-destructuring"
+    ]
+  },
+  "rulesDirectory": []
 }

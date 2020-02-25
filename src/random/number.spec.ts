@@ -7,7 +7,17 @@ describe('number', () => {
     const max = 10;
     const nr = randomNumber(min, max);
 
-    expect(nr).toBeLessThan(max);
-    expect(nr).toBeGreaterThan(min);
+    expect(nr).toBeLessThanOrEqual(max);
+    expect(nr).toBeGreaterThanOrEqual(min);
+  });
+
+  it('throws when min is not a number', () => {
+    // tslint:disable-next-line: no-any
+    expect(() => randomNumber('asdf' as any, 10)).toThrowError('randomNumber must have min and max arguments');
+  });
+
+  it('throws when max is not a number', () => {
+    // tslint:disable-next-line: no-any
+    expect(() => randomNumber(10, 'asdf' as any)).toThrowError('randomNumber must have min and max arguments');
   });
 });

@@ -5,11 +5,29 @@
   ],
   "jsRules": {},
   "rules": {
+    "completed-docs": [
+      true,
+      {
+        "methods": {
+          "privacies": [
+            "public"
+          ]
+        },
+        "enums": true,
+        "functions": {
+          "visibilities": [
+            "exported"
+          ]
+        }
+      }
+    ],
     "file-name-casing": [
       true,
       "kebab-case"
     ],
     "increment-decrement": false,
+    "interface-name": false,
+    "strict-boolean-expressions": false,
     "newline-per-chained-call": false,
     "no-magic-numbers": [
       true,
@@ -19,7 +37,9 @@
       -1,
       -2,
       10,
-      16
+      12,
+      16,
+      60
     ],
     "only-arrow-functions": false,
     "quotemark": false,

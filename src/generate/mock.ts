@@ -29,7 +29,7 @@ export function generate<T>(blueprint: Blueprint<T>): T {
   // tslint:disable-next-line: no-unsafe-any no-null-keyword
   const mock: T = Object.create(null);
 
-  Object.keys(blueprint).forEach((key) => {
+  Object.keys(blueprint).forEach(key => {
     // tslint:disable no-unsafe-any
     // tslint:disable-next-line: ban-ts-ignore only use it here, as blueprint[key] is not mappable to strng, number or Symbol
     // @ts-ignore

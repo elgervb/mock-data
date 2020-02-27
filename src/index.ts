@@ -3,6 +3,7 @@ export { isNumber } from './assert/is-number';
 
 export { factory } from './generate/factory';
 export { Blueprint, generate } from './generate/mock';
+export { generateArray } from './generate/mock-array';
 export { transform } from './generate/transform';
 
 export { randomNumber } from './random/number';

@@ -1,32 +1,35 @@
-import { factory } from './factory';
+import { factory, FactoryType } from './factory';
 
 describe('factory', () => {
 
   it('has default factory for stri ng', () => {
-    expect(typeof factory('string')).toBe('function');
+    expect(typeof factory(FactoryType.string)).toBe('function');
   });
 
   it('has default factory for number', () => {
-    expect(typeof factory('number')).toBe('function');
+    expect(typeof factory(FactoryType.number)).toBe('function');
   });
 
   it('has default factory for guid', () => {
-    expect(typeof factory('guid')).toBe('function');
+    expect(typeof factory(FactoryType.guid)).toBe('function');
   });
 
   it('should throw when factory cannot be resolved', () => {
-    expect(() => factory('bogus...')).toThrowError('no generator found for bogus...');
+    // tslint:disable: no-unsafe-any ban-ts-ignore
+    // @ts-ignore
+    expect(() => factory(FactoryType.bogus)).toThrowError('no generator found for undefined');
+    // tslint:enable: no-unsafe-any ban-ts-ignore
   });
 
   it('has default factory for day', () => {
-    expect(typeof factory('day')).toBe('function');
+    expect(typeof factory(FactoryType.day)).toBe('function');
   });
 
   it('has default factory for month', () => {
-    expect(typeof factory('month')).toBe('function');
+    expect(typeof factory(FactoryType.month)).toBe('function');
   });
 
   it('has default factory for date', () => {
-    expect(typeof factory('date')).toBe('function');
+    expect(typeof factory(FactoryType.date)).toBe('function');
   });
 });

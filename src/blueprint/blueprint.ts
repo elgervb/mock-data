@@ -33,7 +33,7 @@ const registry = new Map<string, BlueprintTemplate<unknown>>();
  */
 export function register<T>(name: string, blueprint: Blueprint<T>): void {
   // tslint:disable-next-line: no-unsafe-any no-null-keyword
-  const mock: T = Object.create(null);
+  const mock: BlueprintTemplate<T> = Object.create(null);
 
   Object.keys(blueprint).forEach(key => {
     // tslint:disable no-unsafe-any

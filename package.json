@@ -17,7 +17,7 @@
   "scripts": {
     "prebuild": "rimraf lib/",
     "build": "tsc",
-    "lint": "tslint -p ./",
+    "lint": "tslint -p ./tsconfig.spec.json",
     "test": "jest",
     "lint-staged": "lint-staged"
   },
@@ -29,7 +29,7 @@
   },
   "lint-staged": {
     "*.ts": [
-      "tslint --fix",
+      "npm run lint -- --fix",
       "jest --bail --findRelatedTests"
     ]
   },

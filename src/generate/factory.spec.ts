@@ -2,7 +2,7 @@ import { factory } from './factory';
 
 describe('factory', () => {
 
-  it('has default factory for string', () => {
+  it('has default factory for stri ng', () => {
     expect(typeof factory('string')).toBe('function');
   });
 

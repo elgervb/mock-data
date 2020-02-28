@@ -1,4 +1,6 @@
-import { Blueprint, generate } from "./mock";
+import { Blueprint } from "../blueprint/blueprint";
+
+import { generate } from "./mock";
 
 /**
  * Generate a n length of Blueprints

@@ -14,7 +14,7 @@ registry.set('month', randomMonth);
 registry.set('date', randomDate);
 
 /**
- * Generator factory
+ * Creates a random factory for a type. Will throw an error when no generator cannot be found
  */
 export function factory(aType: string): () => unknown {
   const generator = registry.get(aType);

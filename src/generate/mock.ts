@@ -1,6 +1,6 @@
 import { Blueprint } from "../blueprint/blueprint";
+import { factory } from "../random/factory";
 
-import { factory } from "./factory";
 import { transform } from "./transform";
 
 /**

@@ -1,5 +1,5 @@
-import { factory } from "../generate/factory";
 import { transform } from "../generate/transform";
+import { factory } from "../random/factory";
 
 /**
  * Blueprint for a model to mock. Use the key-names of the type and value must be a string (eg. the type to generate)

@@ -1,4 +1,5 @@
-import { Blueprint } from './mock';
+import { Blueprint } from '../blueprint/blueprint';
+
 import { generateArray } from './mock-array';
 
 interface TestMock {

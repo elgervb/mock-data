@@ -1,4 +1,4 @@
-import { from, register } from './blueprint';
+import { arrayFrom, from, register } from './blueprint';
 
 interface TestMock {
   asdf?: string;
@@ -6,7 +6,7 @@ interface TestMock {
   guid?: string;
 }
 
-describe('mock', () => {
+describe('register', () => {
 
   it('registers a blueprint', () => {
     register<TestMock>('mock', {
@@ -16,6 +16,20 @@ describe('mock', () => {
     });
 
     expect(from<TestMock>('mock')).toBeTruthy();
+  });
+
+  it('registers a blueprint template', () => {
+    register<TestMock>('mock', {
+      asdf: () => 'asdf',
+      count: () => 10,
+      guid: () => 'guid',
+    });
+
+    const mock = from<TestMock>('mock');
+    expect(mock).toBeTruthy();
+    expect(mock.asdf).toBe('asdf');
+    expect(mock.count).toBe(10);
+    expect(mock.guid).toBe('guid');
   });
 
 });
@@ -45,4 +59,32 @@ describe('from', () => {
     expect(typeof mock.guid).toBe('string');
   });
 
+});
+
+describe('arrayFrom', () => {
+
+  const mockName = 'mock';
+
+  beforeEach(() => {
+    register<TestMock>(mockName, {
+      asdf: 'string',
+      count: 'number',
+      guid: 'guid',
+    });
+  });
+
+  it('generates an array', () => {
+    const mocks = arrayFrom<TestMock>(mockName, 10);
+    expect(mocks).toBeTruthy();
+    expect(mocks.length).toBe(10);
+    expect(mocks[0].count).toBeGreaterThanOrEqual(0);
+    expect(mocks[0].count).toBeLessThanOrEqual(Number.MAX_SAFE_INTEGER);
+
+    mocks.forEach(mock => {
+      expect(typeof mock.count).toBe('number');
+      expect(mock.count).toBeGreaterThanOrEqual(0);
+      expect(mock.count).toBeLessThanOrEqual(Number.MAX_SAFE_INTEGER);
+    });
+
+  });
 });

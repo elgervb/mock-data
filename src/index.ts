@@ -10,7 +10,7 @@ export { transform } from './generate/transform';
 export { randomDate } from './random/date';
 export { randomDay } from './random/date-day';
 export { randomMonth } from './random/date-month';
-export { factory } from './random/factory';
+export { factory, FactoryType } from './random/factory';
 export { randomGuid } from './random/guid';
 export { randomNumber } from './random/number';
 export { randomString } from './random/string';

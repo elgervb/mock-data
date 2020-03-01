@@ -11,6 +11,13 @@ describe('number', () => {
     expect(nr).toBeGreaterThanOrEqual(min);
   });
 
+  it('generates a default random number', () => {
+    const nr = randomNumber();
+
+    expect(nr).toBeLessThanOrEqual(Number.MAX_SAFE_INTEGER);
+    expect(nr).toBeGreaterThanOrEqual(0);
+  });
+
   it('throws when min is not a number', () => {
     // tslint:disable-next-line: no-any
     expect(() => randomNumber('asdf' as any, 10)).toThrowError('randomNumber must have min and max arguments');

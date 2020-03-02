@@ -1,8 +1,13 @@
 
+[![Build Status](https://travis-ci.org/elgervb/mock-data.svg?branch=master)](https://travis-ci.org/elgervb/mock-data)
+[![dependencies Status](https://david-dm.org/elgervb/mock-data/status.svg)](https://david-dm.org/elgervb/mock-data)
+[![devDependencies Status](https://david-dm.org/elgervb/mock-data/dev-status.svg)](https://david-dm.org/elgervb/mock-data?type=dev)
+[![Maintainability](https://api.codeclimate.com/v1/badges/25e8c57443d8ee086238/maintainability)](https://codeclimate.com/github/elgervb/mock-data/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/25e8c57443d8ee086238/test_coverage)](https://codeclimate.com/github/elgervb/mock-data/test_coverage)
+
 
 # MOCK-DATA
 
-[![Build Status](https://travis-ci.org/elgervb/mock-data.svg?branch=master)](https://travis-ci.org/elgervb/mock-data)
 
 
 Mock data made easy.

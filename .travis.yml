@@ -9,6 +9,9 @@ node_js:
   - "12"
   - "13"
 
+os: linux
+dist: trusty
+
 addons:
     apt:
       packages:
@@ -25,9 +28,9 @@ before_script:
   - ./cc-test-reporter before-build
 
 script:
- - yarn lint
- - yarn test --coverage
- - yarn build
+  - yarn lint
+  - yarn test --coverage
+  - yarn build
  
- after_script:
+after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

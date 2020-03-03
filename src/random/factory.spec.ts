@@ -32,4 +32,8 @@ describe('factory', () => {
   it('has default factory for date', () => {
     expect(typeof factory(FactoryType.date)).toBe('function');
   });
+
+  it('has default factory for boolean', () => {
+    expect(typeof factory(FactoryType.boolean)).toBe('function');
+  });
 });

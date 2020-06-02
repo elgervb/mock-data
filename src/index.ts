@@ -1,7 +1,7 @@
 export { isLeapYear } from './assert/is-leap-year';
 export { isNumber } from './assert/is-number';
 
-export { Blueprint, from, register } from './blueprint/blueprint';
+export { Blueprint, from, arrayFrom, register } from './blueprint/blueprint';
 
 export { generate } from './generate/mock';
 export { generateArray } from './generate/mock-array';

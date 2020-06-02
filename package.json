@@ -34,6 +34,6 @@
       "jest --bail --findRelatedTests"
     ]
   },
-  "author": "",
+  "author": "Elger van Boxtel",
   "license": "ISC"
 }

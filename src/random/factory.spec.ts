@@ -36,4 +36,8 @@ describe('factory', () => {
   it('has default factory for boolean', () => {
     expect(typeof factory(FactoryType.boolean)).toBe('function');
   });
+
+  it('has default factory for geolocation', () => {
+    expect(typeof factory(FactoryType.geo)).toBe('function');
+  });
 });

@@ -2,6 +2,7 @@ import { randomBoolean } from "./boolean";
 import { randomDate } from "./date";
 import { randomDay } from "./date-day";
 import { randomMonth } from "./date-month";
+import { randomYear } from "./date-year";
 import { randomGeolocation } from "./geolocation";
 import { randomGuid } from "./guid";
 import { randomNumber } from "./number";
@@ -19,6 +20,7 @@ export enum FactoryType {
   month = 'month',
   number = 'number',
   string = 'string',
+  year = 'year',
 }
 
 // tslint:disable-next-line: no-any return type can be of any type
@@ -31,6 +33,7 @@ registry.set(FactoryType.guid, randomGuid);
 registry.set(FactoryType.month, randomMonth);
 registry.set(FactoryType.number, randomNumber);
 registry.set(FactoryType.string, () => randomString(10));
+registry.set(FactoryType.year, randomYear);
 
 /**
  * Creates a random factory for a type. Will throw an error when no generator cannot be found

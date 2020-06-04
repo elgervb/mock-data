@@ -40,4 +40,8 @@ describe('factory', () => {
   it('has default factory for geolocation', () => {
     expect(typeof factory(FactoryType.geo)).toBe('function');
   });
+
+  it('has default factory for year', () => {
+    expect(typeof factory(FactoryType.year)).toBe('function');
+  });
 });

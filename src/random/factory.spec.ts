@@ -44,4 +44,8 @@ describe('factory', () => {
   it('has default factory for year', () => {
     expect(typeof factory(FactoryType.year)).toBe('function');
   });
+
+  it('has default factory for hex', () => {
+    expect(typeof factory(FactoryType.hex)).toBe('function');
+  });
 });

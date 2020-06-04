@@ -5,6 +5,7 @@ import { randomMonth } from "./date-month";
 import { randomYear } from "./date-year";
 import { randomGeolocation } from "./geolocation";
 import { randomGuid } from "./guid";
+import { randomHexColor } from "./hex-color";
 import { randomNumber } from "./number";
 import { randomString } from "./string";
 
@@ -17,6 +18,7 @@ export enum FactoryType {
   day = 'day',
   geo = 'geolocation',
   guid = 'guid',
+  hex = 'hex',
   month = 'month',
   number = 'number',
   string = 'string',
@@ -30,6 +32,7 @@ registry.set(FactoryType.date, randomDate);
 registry.set(FactoryType.day, randomDay);
 registry.set(FactoryType.geo, randomGeolocation);
 registry.set(FactoryType.guid, randomGuid);
+registry.set(FactoryType.hex, randomHexColor);
 registry.set(FactoryType.month, randomMonth);
 registry.set(FactoryType.number, randomNumber);
 registry.set(FactoryType.string, () => randomString(10));

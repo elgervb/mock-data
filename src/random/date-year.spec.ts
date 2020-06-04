@@ -1,6 +1,6 @@
 import { randomYear } from './date-year';
 
-describe('month', () => {
+describe('year', () => {
 
   const currentYear = new Date().getFullYear();
   const fromYear = currentYear - 10;

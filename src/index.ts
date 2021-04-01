@@ -13,6 +13,7 @@ export { randomDay } from './random/date-day';
 export { randomMonth } from './random/date-month';
 export { randomYear } from './random/date-year';
 export { factory, FactoryType } from './random/factory';
+export { randomFromArray } from './random/from-array';
 export { randomGeolocation } from './random/geolocation';
 export { randomGuid } from './random/guid';
 export { randomHexColor } from './random/hex-color';

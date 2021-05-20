@@ -1,6 +1,6 @@
 {
   "name": "@elgervb/mock-data",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Mock data made easy.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

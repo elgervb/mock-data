@@ -25,7 +25,7 @@ export enum FactoryType {
   year = 'year',
 }
 
-// tslint:disable-next-line: no-any return type can be of any type
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const registry = new Map<FactoryType, () => any>();
 registry.set(FactoryType.boolean, randomBoolean);
 registry.set(FactoryType.date, randomDate);

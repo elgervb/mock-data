@@ -10,7 +10,6 @@ export function randomDay(month?: number, year?: number): number {
   const currentMonth = month ? month : randomMonth();
 
   let maxDay: number;
-  // tslint:disable: no-magic-numbers
   switch (currentMonth) {
     case 1:
     case 3:
@@ -27,7 +26,6 @@ export function randomDay(month?: number, year?: number): number {
     default:
       maxDay = 30;
   }
-  // tslint:enable: no-magic-numbers
 
   return randomNumber(1, maxDay);
 }

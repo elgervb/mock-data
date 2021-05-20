@@ -33,16 +33,13 @@ const registry = new Map<string, BlueprintTemplate<unknown>>();
  * Generate a mock
  */
 export function register<T>(name: string, blueprint: Blueprint<T> | BlueprintTemplate<T>): void {
-  // tslint:disable-next-line: no-unsafe-any no-null-keyword
   const mock: BlueprintTemplate<T> = Object.create(null);
 
   Object.keys(blueprint).forEach(key => {
-    // tslint:disable no-unsafe-any
-    // tslint:disable-next-line: ban-ts-ignore only use it here, as blueprint[key] is not mappable to strng, number or Symbol
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment 
     // @ts-ignore
     const value = blueprint[key];
     const generator = (typeof value === 'function') ? value : factory(value);
-    // tslint:enable no-unsafe-any
     Object.assign(mock, { [key]: generator });
   });
 
@@ -58,15 +55,12 @@ export function from<T>(name: string): T {
     throw new Error(`Cannot find blueprint for name ${name}`);
   }
 
-  // tslint:disable-next-line: no-unsafe-any no-null-keyword
   const mock: T = Object.create(null);
 
   Object.keys(blueprint).forEach(key => {
-    // tslint:disable no-unsafe-any
-    // tslint:disable-next-line: ban-ts-ignore only use it here, as blueprint[key] is not mappable to strng, number or Symbol
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     Object.assign(mock, { [key]: blueprint[key]() });
-    // tslint:enable no-unsafe-any
   });
 
   return transform<T>(mock);

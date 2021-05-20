@@ -30,6 +30,6 @@ register<Wheel>('wheel', {
 
 const mocks = arrayFrom<Car>('car', 10);
 
-// tslint:disable: ban-ts-ignore no-console no-unsafe-any
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 console.dir(mocks);

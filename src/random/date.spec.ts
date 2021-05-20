@@ -1,6 +1,5 @@
 import { randomDate } from './date';
 
-// tslint:disable no-magic-numbers
 describe('date', () => {
   const now = new Date();
 
@@ -18,4 +17,3 @@ describe('date', () => {
   });
 
 });
-// tslint:enable no-magic-numbers

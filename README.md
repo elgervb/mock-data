@@ -8,9 +8,7 @@
 
 # MOCK-DATA
 
-
-
-Mock data made easy.
+Mock data made easy, while maintaining type-safety and reducing boilerplate code.
 
 
 # Examples

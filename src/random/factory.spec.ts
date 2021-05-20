@@ -15,10 +15,9 @@ describe('factory', () => {
   });
 
   it('should throw when factory cannot be resolved', () => {
-    // tslint:disable: no-unsafe-any ban-ts-ignore
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     expect(() => factory(FactoryType.bogus)).toThrowError('no generator found for undefined');
-    // tslint:enable: no-unsafe-any ban-ts-ignore
   });
 
   it('has default factory for day', () => {

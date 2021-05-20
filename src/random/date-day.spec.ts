@@ -1,6 +1,5 @@
 import { randomDay } from './date-day';
 
-// tslint:disable: no-magic-numbers
 describe('date day', () => {
 
   it('gets days for February', () => {
@@ -45,4 +44,3 @@ describe('date day', () => {
     expect(day).toBeGreaterThanOrEqual(1);
   });
 });
-// tslint:enable: no-magic-numbers

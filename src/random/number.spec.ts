@@ -29,12 +29,12 @@ describe('number', () => {
   });
 
   it('throws when min is not a number', () => {
-    // tslint:disable-next-line: no-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     expect(() => randomNumber('asdf' as any, 10)).toThrowError('randomNumber must have min and max arguments');
   });
 
   it('throws when max is not a number', () => {
-    // tslint:disable-next-line: no-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     expect(() => randomNumber(10, 'asdf' as any)).toThrowError('randomNumber must have min and max arguments');
   });
 

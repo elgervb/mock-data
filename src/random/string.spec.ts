@@ -7,7 +7,6 @@ describe('string', () => {
   });
 
   it('throws when length is not a number', () => {
-    // tslint:disable-next-line: no-any
-    expect(() => randomString('asdf' as any)).toThrowError('randomString must have a length argument');
+    expect(() => randomString('asdf' as never)).toThrowError('randomString must have a length argument');
   });
 });

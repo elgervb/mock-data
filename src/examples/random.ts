@@ -17,6 +17,4 @@ const user: User = {
   name: randomString(10),
 };
 
-// tslint:disable: ban-ts-ignore no-console no-unsafe-any
-// @ts-ignore
 console.dir(user);

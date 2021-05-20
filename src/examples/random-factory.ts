@@ -14,6 +14,6 @@ const user: User = {
   name: factory<string>(FactoryType.string)(),
 };
 
-// tslint:disable: ban-ts-ignore no-console no-unsafe-any
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 console.dir(user);

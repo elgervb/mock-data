@@ -1,5 +1,4 @@
-import { transform } from "../generate/transform";
-import { factory } from "../random/factory";
+import { generate } from "../generate/mock";
 
 type Closure = () => unknown;
 /**
@@ -20,30 +19,19 @@ type Closure = () => unknown;
  * ```
  */
 export type Blueprint<T> = {
-  [P in keyof T]?: string | Closure;
+  [P in keyof T]?: ReturnType<Closure>;
 };
 
-type BlueprintTemplate<T> = {
-  [P in keyof T]?: Closure;
-};
-
-const registry = new Map<string, BlueprintTemplate<unknown>>();
+/**
+ * Registry with all the blueprints in it
+ */
+const registry = new Map<string, Blueprint<unknown>>();
 
 /**
  * Generate a mock
  */
-export function register<T>(name: string, blueprint: Blueprint<T> | BlueprintTemplate<T>): void {
-  const mock: BlueprintTemplate<T> = Object.create(null);
-
-  Object.keys(blueprint).forEach(key => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment 
-    // @ts-ignore
-    const value = blueprint[key];
-    const generator = (typeof value === 'function') ? value : factory(value);
-    Object.assign(mock, { [key]: generator });
-  });
-
-  registry.set(name, mock);
+export function register<T>(name: string, blueprint: Blueprint<T>): void {
+  registry.set(name, blueprint);
 }
 
 /**
@@ -55,15 +43,7 @@ export function from<T>(name: string): T {
     throw new Error(`Cannot find blueprint for name ${name}`);
   }
 
-  const mock: T = Object.create(null);
-
-  Object.keys(blueprint).forEach(key => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    Object.assign(mock, { [key]: blueprint[key]() });
-  });
-
-  return transform<T>(mock);
+  return generate<T>(blueprint);
 }
 
 /**

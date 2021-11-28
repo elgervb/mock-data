@@ -8,16 +8,6 @@ interface TestMock {
 
 describe('register', () => {
 
-  it('registers a blueprint', () => {
-    register<TestMock>('mock', {
-      asdf: 'string',
-      count: 'number',
-      guid: 'guid',
-    });
-
-    expect(from<TestMock>('mock')).toBeTruthy();
-  });
-
   it('registers a blueprint template', () => {
     register<TestMock>('mock', {
       asdf: () => 'asdf',
@@ -40,9 +30,9 @@ describe('from', () => {
 
   beforeEach(() => {
     register<TestMock>(mockName, {
-      asdf: 'string',
-      count: 'number',
-      guid: 'guid',
+      asdf: () => 'string',
+      count: () => 42,
+      guid: () => 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx',
     });
   });
 
@@ -67,9 +57,9 @@ describe('arrayFrom', () => {
 
   beforeEach(() => {
     register<TestMock>(mockName, {
-      asdf: 'string',
-      count: 'number',
-      guid: 'guid',
+      asdf: () => 'string',
+      count: () => 42,
+      guid: () => 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx',
     });
   });
 

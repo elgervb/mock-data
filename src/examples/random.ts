@@ -1,7 +1,4 @@
-import { randomBoolean } from "../random/boolean";
-import { randomDate } from "../random/date";
-import { randomGuid } from "../random/guid";
-import { randomString } from "../random/string";
+import { randomBoolean, randomDate, randomGuid, randomString } from "../random";
 
 interface User {
   active: boolean;

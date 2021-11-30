@@ -1,5 +1,4 @@
-import { randomGuid, randomHexColor, randomNumber, randomString } from '..';
-import { arrayFrom, register } from '../blueprint/blueprint';
+import { arrayFrom, randomGuid, randomHexColor, randomNumber, randomString, register } from '..';
 
 interface Car {
   brand: string;

@@ -1,3 +1,6 @@
+import { randomGuid } from '../random/guid';
+import { randomNumber } from '../random/number';
+import { randomString } from '../random/string';
 import { generate } from './mock';
 
 interface TestMock {
@@ -9,15 +12,16 @@ interface TestMock {
 describe('mock', () => {
 
   it('generates a mock for string', () => {
-    const mock = generate<TestMock>({ asdf: 'string' });
+    const stringLength = 10;
+    const mock = generate<TestMock>({ asdf: () => randomString(stringLength) });
 
     expect(mock).toHaveProperty('asdf');
     expect(typeof mock.asdf).toBe('string');
-    expect(mock.asdf).toHaveLength(10);
+    expect(mock.asdf).toHaveLength(stringLength);
   });
 
   it('generates a mock for number', () => {
-    const mock = generate<TestMock>({ count: 'number' });
+    const mock = generate<TestMock>({ count: () => randomNumber(25, 150) });
 
     expect(mock).toHaveProperty('count');
     expect(typeof mock.count).toBe('number');
@@ -26,7 +30,7 @@ describe('mock', () => {
   });
 
   it('generates a mock for guid', () => {
-    const mock = generate<TestMock>({ guid: 'guid' });
+    const mock = generate<TestMock>({ guid: randomGuid });
 
     expect(mock).toHaveProperty('guid');
     expect(typeof mock.guid).toBe('string');
@@ -35,9 +39,9 @@ describe('mock', () => {
 
   it('generates a mock for multiple properties (string, number, guid)', () => {
     const mock = generate<TestMock>({
-      asdf: 'string',
-      count: 'number',
-      guid: 'guid',
+      asdf: () => randomString(10),
+      count: randomNumber,
+      guid: randomGuid,
     });
 
     expect(mock).toHaveProperty('asdf');

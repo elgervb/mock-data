@@ -1,5 +1,4 @@
-import { arrayFrom, register } from '../blueprint/blueprint';
-import { FactoryType } from '../random/factory';
+import { arrayFrom, randomGuid, randomHexColor, randomNumber, randomString, register } from '..';
 
 interface Car {
   brand: string;
@@ -17,15 +16,15 @@ const nrOfWheels = 4;
 
 // First register some blueprints
 register<Car>('car', {
-  brand: FactoryType.string,
-  color: FactoryType.string,
-  guid: FactoryType.guid,
-  type: FactoryType.string,
+  brand: () => randomString(3),
+  color: () => randomHexColor(),
+  guid: randomGuid,
+  type: () => randomString(4),
   wheels: () => arrayFrom('wheel', nrOfWheels),
 });
 
 register<Wheel>('wheel', {
-  inches: FactoryType.number,
+  inches: () => randomNumber(2, 4),
 });
 
 const mocks = arrayFrom<Car>('car', 10);

@@ -1,4 +1,7 @@
 import { Blueprint } from '../blueprint/blueprint';
+import { randomGuid } from '../random/guid';
+import { randomNumber } from '../random/number';
+import { randomString } from '../random/string';
 
 import { generateArray } from './mock-array';
 
@@ -11,9 +14,9 @@ interface TestMock {
 describe('mock-array', () => {
 
   const blueprint: Blueprint<TestMock> = {
-    asdf: 'string',
-    count: 'number',
-    guid: 'guid',
+    asdf: () => randomString(10),
+    count: () => randomNumber(25, 100),
+    guid: randomGuid,
   };
 
   it('generates an array', () => {

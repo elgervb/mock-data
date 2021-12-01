@@ -1,16 +1,22 @@
-import { isLeapYear } from "../assert/is-leap-year";
+import { isLeapYear } from '../assert/is-leap-year';
 
-import { randomMonth } from "./date-month";
-import { randomNumber } from "./number";
+import { randomMonth } from './date-month';
+import { randomNumber } from './number';
 
 /**
  * Returns a random day for a month. 1=january, etc.
  */
 export function randomDay(month?: number, year?: number): number {
   const currentMonth = month ? month : randomMonth();
+  const leapYear = !!year && isLeapYear(year);
 
-  let maxDay: number;
-  switch (currentMonth) {
+  const maxDay = calculateMaxDayForMonth(currentMonth, leapYear);
+
+  return randomNumber(1, maxDay);
+}
+
+export function calculateMaxDayForMonth(month: number, isLeapYear: boolean): number {
+  switch (month) {
     case 1:
     case 3:
     case 5:
@@ -18,14 +24,10 @@ export function randomDay(month?: number, year?: number): number {
     case 8:
     case 10:
     case 12:
-      maxDay = 31;
-      break;
+      return 31;
     case 2:
-      maxDay = (year && isLeapYear(year)) ? 29 : 28;
-      break;
+      return isLeapYear ? 29 : 28;
     default:
-      maxDay = 30;
+      return 30;
   }
-
-  return randomNumber(1, maxDay);
 }

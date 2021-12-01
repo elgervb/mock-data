@@ -1,4 +1,4 @@
-import { isNumber } from "./is-number";
+import { isNumber } from './is-number';
 
 describe('is-number', () => {
   const checkNumber = 42;

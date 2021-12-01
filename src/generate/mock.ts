@@ -1,6 +1,6 @@
-import { Blueprint } from "../blueprint/blueprint";
+import { Blueprint } from '../blueprint/blueprint';
 
-import { transform } from "./transform";
+import { transform } from './transform';
 
 /**
  * Generate a mock from a blueprint

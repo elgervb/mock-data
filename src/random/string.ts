@@ -1,4 +1,4 @@
-import { isNumber } from "../assert/is-number";
+import { isNumber } from '../assert/is-number';
 
 /**
  * Generates a random string of length

@@ -1,6 +1,6 @@
-import { randomDay } from "./date-day";
-import { randomMonth } from "./date-month";
-import { randomNumber } from "./number";
+import { randomDay } from './date-day';
+import { randomMonth } from './date-month';
+import { randomNumber } from './number';
 
 const minYear = 1970;
 const maxYear = new Date().getFullYear();

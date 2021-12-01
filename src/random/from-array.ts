@@ -1,4 +1,4 @@
-import { randomNumber } from "./number";
+import { randomNumber } from './number';
 
 /**
  * returns a random item from an array, or undefined when array is empty

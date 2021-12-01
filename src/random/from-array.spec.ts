@@ -5,7 +5,7 @@ import { randomFromArray } from './from-array';
 describe('from-array', () => {
 
   it('returns a random item', () => {
-    const array = [1, 2, 10];
+    const array = [ 1, 2, 10 ];
     const random = randomFromArray(array);
     expect(array.some(item => item === random)).toBeTruthy();
   });

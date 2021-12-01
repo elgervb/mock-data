@@ -1,4 +1,4 @@
-import { isNumber } from "../assert/is-number";
+import { isNumber } from '../assert/is-number';
 
 /**
  * Generate a random number >= min and <= max

@@ -1,4 +1,4 @@
-import { randomNumber } from "./number";
+import { randomNumber } from './number';
 
 const currentYear = new Date().getFullYear();
 const fromYear = currentYear - 10;

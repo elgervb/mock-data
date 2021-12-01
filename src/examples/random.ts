@@ -1,4 +1,4 @@
-import { randomBoolean, randomDate, randomGuid, randomString } from "../random";
+import { randomBoolean, randomDate, randomGuid, randomString } from '../random';
 
 interface User {
   active: boolean;

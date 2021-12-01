@@ -1,4 +1,4 @@
-import { randomNumber } from "./number";
+import { randomNumber } from './number';
 
 /**
  * Generates a random month

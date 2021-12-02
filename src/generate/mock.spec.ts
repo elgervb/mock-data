@@ -37,6 +37,16 @@ describe('mock', () => {
     expect(mock.guid).toMatch(/^[0-9A-F]{8}-[0-9A-F]{4}-[4][0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i);
   });
 
+  it('generated with defaults', () => {
+    const mock = generate<TestMock>({ guid: randomGuid }, { asdf: 'asdf' });
+    expect(mock.asdf).toBe('asdf');
+  });
+
+  it('generated override blueprint', () => {
+    const mock = generate<TestMock>({ guid: randomGuid }, { guid: 'asdf' });
+    expect(mock.guid).toBe('asdf');
+  });
+
   it('generates a mock for multiple properties (string, number, guid)', () => {
     const mock = generate<TestMock>({
       asdf: () => randomString(10),

@@ -1,18 +1,30 @@
-import { Blueprint } from '../blueprint/blueprint';
+import { Blueprint, BlueprintConstantProperties } from '../blueprint/blueprint';
 
 import { transform } from './transform';
 
 /**
  * Generate a mock from a blueprint
  */
-export function generate<T>(blueprint: Blueprint<T>): T {
+export function generate<T>(blueprint: Blueprint<T>, withDefaults?: BlueprintConstantProperties<T>): T {
   const mock: T = Object.create(null);
 
-  Object.keys(blueprint).forEach(key => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const generator = blueprint[key];
-    Object.assign(mock, { [key]: generator() });
+  const allKeys = Array.from(new Set(Object.keys(blueprint).concat(Object.keys({ ...withDefaults }))));
+  allKeys.forEach(key => {
+    let value: unknown;
+    if (withDefaults) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      value = withDefaults[key];
+    }
+
+    // otherwise, use the generator
+    if(!value) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      const generator = blueprint[key];
+      value = generator();
+    }
+    Object.assign(mock, { [key]: value });
   });
 
   return transform<T>(mock);

@@ -20,3 +20,7 @@ export type Closure<R> = () => R;
 export type Blueprint<T> = {
   [P in keyof T]?: Closure<T[P]>;
 };
+
+export type BlueprintConstantProperties<T> = {
+  [P in keyof T]?: T[P];
+};

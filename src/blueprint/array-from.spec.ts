@@ -32,4 +32,15 @@ describe('arrayFrom', () => {
     });
 
   });
+
+  it('generates an array with defaults', () => {
+    const mocks = arrayFrom<TestMock>(mockName, 10, { count: 365 });
+
+    mocks.forEach(mock => {
+      expect(typeof mock.count).toBe('number');
+      expect(mock.count).toBe(365);
+      expect(mock.count).toBeLessThanOrEqual(Number.MAX_SAFE_INTEGER);
+    });
+
+  });
 });

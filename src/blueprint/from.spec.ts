@@ -31,4 +31,15 @@ describe('from', () => {
     expect(typeof mock.guid).toBe('string');
   });
 
+  it('retrieves a registered mock with defaults', () => {
+    const mock = from<TestMock>(mockName, { count: 365 });
+
+    expect(mock).toBeTruthy();
+    expect(typeof mock.asdf).toBe('string');
+    expect(typeof mock.count).toBe('number');
+    expect(mock.count).toBe(365);
+    expect(typeof mock.guid).toBe('string');
+  });
+
+
 });

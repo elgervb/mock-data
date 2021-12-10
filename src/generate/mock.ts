@@ -18,7 +18,7 @@ export function generate<T>(blueprint: Blueprint<T>, withDefaults?: BlueprintCon
     }
 
     // otherwise, use the generator
-    if(!value) {
+    if(value === undefined) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       const generator = blueprint[key];

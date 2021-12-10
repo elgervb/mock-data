@@ -29,6 +29,4 @@ register<Wheel>('wheel', {
 
 const mocks = arrayFrom<Car>('car', 10);
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 console.dir(mocks);

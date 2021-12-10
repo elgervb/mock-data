@@ -7,6 +7,7 @@ interface TestMock {
   asdf?: string;
   count?: number;
   guid?: string;
+  bool: boolean;
 }
 
 describe('mock', () => {
@@ -42,9 +43,15 @@ describe('mock', () => {
     expect(mock.asdf).toBe('asdf');
   });
 
-  it('generated override blueprint', () => {
+  it('generated with defaults override blueprint', () => {
     const mock = generate<TestMock>({ guid: randomGuid }, { guid: 'asdf' });
     expect(mock.guid).toBe('asdf');
+  });
+
+  it('generated with defaults override blueprint when falsy', () => {
+    const mock = generate<TestMock>({ guid: randomGuid }, { count: 0, bool: false });
+    expect(mock.count).toBe(0);
+    expect(mock.bool).toBe(false);
   });
 
   it('generates a mock for multiple properties (string, number, guid)', () => {

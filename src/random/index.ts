@@ -3,6 +3,8 @@ export * from './date';
 export * from './date-day';
 export * from './date-month';
 export * from './date-year';
+export * from './email';
+export * from './enum-entry';
 export * from './from-array';
 export * from './geolocation';
 export * from './guid';

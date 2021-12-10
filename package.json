@@ -1,7 +1,8 @@
 {
   "name": "@elgervb/mock-data",
   "version": "1.0.2",
-  "description": "Mock data made easy.",
+  "description": "Mock data made easy, while maintaining type safety",
+  "keywords": ["typescrpt", "mock", "mocking", "type safety", "testing"],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "devDependencies": {

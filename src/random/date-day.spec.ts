@@ -1,4 +1,4 @@
-import { randomDay } from './date-day';
+import { daysForMonth, randomDay } from './date-day';
 
 describe('date day', () => {
 
@@ -42,5 +42,23 @@ describe('date day', () => {
     const day = randomDay();
     expect(day).toBeLessThanOrEqual(31);
     expect(day).toBeGreaterThanOrEqual(1);
+  });
+});
+
+describe('daysForMonth', () => {
+
+  it('gets days for a long month', () => {
+    const all31days = [ 1, 3, 5, 7, 8, 10, 12 ].map(monthNr => daysForMonth(monthNr, false)).some(days => days === 31);
+    expect(all31days).toBe(true);
+  });
+
+  it('gets days for a short month', () => {
+    const all30days = [ 2, 4, 6, 9, 11 ].map(monthNr => daysForMonth(monthNr, false)).some(days => days === 30);
+    expect(all30days).toBe(true);
+  });
+
+  it('gets days for February', () => {
+    expect(daysForMonth(2, false)).toBe(28);
+    expect(daysForMonth(2, true)).toBe(29);
   });
 });

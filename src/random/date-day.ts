@@ -10,12 +10,15 @@ export function randomDay(month?: number, year?: number): number {
   const currentMonth = month ? month : randomMonth();
   const leapYear = !!year && isLeapYear(year);
 
-  const maxDay = calculateMaxDayForMonth(currentMonth, leapYear);
+  const maxDay = daysForMonth(currentMonth, leapYear);
 
   return randomNumber(1, maxDay);
 }
 
-export function calculateMaxDayForMonth(month: number, isLeapYear: boolean): number {
+/**
+ * returns the days for the month in the (leap)year
+ */
+export function daysForMonth(month: number, leapYear: boolean): number {
   switch (month) {
     case 1:
     case 3:
@@ -26,8 +29,15 @@ export function calculateMaxDayForMonth(month: number, isLeapYear: boolean): num
     case 12:
       return 31;
     case 2:
-      return isLeapYear ? 29 : 28;
+      return leapYear ? 29 : 28;
     default:
       return 30;
   }
+}
+
+/**
+ * @deprecated please use {@link daysForMonth}, will be removed in next major version
+ */
+export function calculateMaxDayForMonth(month: number, leapYear: boolean): number {
+  return daysForMonth(month, leapYear);
 }

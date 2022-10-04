@@ -1,4 +1,4 @@
-export type Closure<R> = () => R;
+export type Closure<T, R> = (mock?: T) => R;
 
 /**
  * Blueprint for a model to mock. Use the key-names of the type and value must be a string (eg. the type to generate)
@@ -18,7 +18,7 @@ export type Closure<R> = () => R;
  * ```
  */
 export type Blueprint<T> = {
-  [P in keyof T]?: Closure<T[P]>;
+  [P in keyof T]?: Closure<T, T[P]>;
 };
 
 export type BlueprintConstantProperties<T> = {

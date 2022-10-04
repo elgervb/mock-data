@@ -57,7 +57,7 @@ describe('mock', () => {
   it('generates a mock for multiple properties (string, number, guid)', () => {
     const mock = generate<TestMock>({
       asdf: () => randomString(10),
-      count: randomNumber,
+      count: () => randomNumber(),
       guid: randomGuid,
     });
 

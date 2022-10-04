@@ -22,7 +22,7 @@ export function generate<T>(blueprint: Blueprint<T>, withDefaults?: BlueprintCon
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       const generator = blueprint[key];
-      value = generator();
+      value = generator(mock);
     }
     Object.assign(mock, { [key]: value });
   });
